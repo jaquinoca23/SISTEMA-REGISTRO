@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reportes - Registro de Huéspedes</title>
+    <link rel="icon" href="../Imagenes/a4.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen text-slate-900 flex items-center justify-center py-10 px-4"
+    style="background-image: url('../Imagenes/hy.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="w-full max-w-6xl rounded-3xl bg-white shadow-xl shadow-slate-200/70">
+
+        <div class="border-b border-slate-200 px-6 py-6 sm:px-8">
+            <div class="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+                <div class="flex items-center gap-4">
+
+                    <div
+                        class="flex h-16 w-16 items-center justify-center rounded-3xl bg-slate-50 shadow-sm border border-slate-200">
+                        <img src="../static/images/sol.png" alt="Sol" class="h-12 w-12" />
+                    </div>
+
+                    <div>
+                        <h1 class="text-3xl font-semibold tracking-tight text-slate-900">Reportes de Registro</h1>
+                        <p class="mt-2 text-sm text-slate-600">Filtra los datos por rango de fechas para ver el reporte
+                            deseado.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <div class="inline-flex rounded-full bg-slate-100 p-1 shadow-sm">
+                        <a href="login.html"
+                            class="rounded-full px-5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900">LOGIN</a>
+                        <a href="registro.html"
+                            class="ml-1 rounded-full px-5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900">REGISTRO</a>
+                        <a href="reportes.html"
+                            class="ml-1 rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm">REPORTE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-6 px-6 py-8 sm:px-8">
+
+            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <h2 class="text-lg font-semibold text-slate-900">Filtrar por fechas</h2>
+
+                <div class="mt-5 grid gap-4 md:grid-cols-3">
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Fecha desde</label>
+                        <input id="fecha-desde" type="date"
+                            class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Fecha hasta</label>
+                        <input id="fecha-hasta" type="date"
+                            class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+
+                    <div class="flex items-end gap-3">
+                        <button id="btn-filtrar"
+                            class="w-full rounded-3xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white hover:bg-sky-700">Filtrar</button>
+                        <button id="btn-limpiar"
+                            class="w-full rounded-3xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-6 py-4 sm:px-8">
+                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                    <h2 class="text-base font-semibold text-slate-900">Filtrar por DNI</h2>
+
+                    <div class="mt-4 flex flex-wrap items-end gap-3">
+                        <div class="flex-1 min-w-[180px] max-w-xs">
+                            <label class="mb-1.5 block text-sm font-medium text-slate-700">Ingresar DNI</label>
+                            <input id="dni" type="text" placeholder="Ej: 12345678"
+                                class="w-full rounded-2xl border border-slate-300 px-4 py-2.5 text-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                        </div>
+
+                        <button id="btn-filtrar-dni"
+                            class="rounded-3xl bg-sky-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-sky-700">
+                            Filtrar
+                        </button>
+                        <button id="btn-limpiar-dni"
+                            class="rounded-3xl border border-slate-300 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100">
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div class="flex justify-between">
+                    <h2 class="text-lg font-semibold text-slate-900">Resultados del reporte</h2>
+                    <span id="resultado-cantidad" class="text-sm text-slate-500">Mostrando 0 registros</span>
+                </div>
+
+                <div class="mt-5 overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200 text-sm">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left">Documento</th>
+                                <th class="px-4 py-3 text-left">Nombres</th>
+                                <th class="px-4 py-3 text-left">Apellidos</th>
+                                <th class="px-4 py-3 text-left">Edad</th>
+                                <th class="px-4 py-3 text-left">Sexo</th>
+                                <th class="px-4 py-3 text-left">Nacionalidad</th>
+                                <th class="px-4 py-3 text-left">Ciudad</th>
+                                <th class="px-4 py-3 text-left">Ingreso</th>
+                                <th class="px-4 py-3 text-left">Salida</th>
+                                <th class="px-4 py-3 text-left">Motivo del viaje</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reportes-body">
+                            <tr>
+                                <td colspan="5" class="px-4 py-10 text-center text-slate-500">
+                                    Utiliza el filtro para ver los registros.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../static/js/reportes.js"></script>
+</body>
+
+</html>

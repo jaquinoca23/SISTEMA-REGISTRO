@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Huéspedes</title>
+    <link rel="icon" href="/Imagenes/a4.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen text-slate-900 flex items-center justify-center py-10"
+    style="background-image: url('/Imagenes/hy.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="overflow-hidden rounded-3xl shadow-xl shadow-slate-200/70"
+            style="background: linear-gradient(180deg, rgba(240,249,255,0.95) 0%, rgba(224,240,255,0.95) 50%, rgba(249,252,255,0.95) 100%);">
+
+            <div class="border-b border-slate-200 px-6 py-6 sm:px-8">
+                <div class="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center sm:items-center">
+                    <div class="flex items-center gap-4">
+                        <img src="/Imagenes/sol.png" alt="Sol" class="h-14 w-14 rounded-2xl border border-slate-200 bg-slate-50 p-2 shadow-sm" />
+                        <div>
+                            <h1 class="text-3xl font-semibold tracking-tight text-slate-900">Registro de Huéspedes</h1>
+                            <p class="mt-2 text-sm text-slate-600">Complete los datos del huésped y regístrelo para verlos abajo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center">
+                    <div class="inline-flex rounded-full bg-slate-100 p-1 shadow-sm">
+                        <a href="/login" class="rounded-full px-5 py-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900">LOGIN</a>
+                        <a href="/registro" class="ml-1 rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm">REGISTRO</a>
+                        <a href="/reportes" class="ml-1 rounded-full px-5 py-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900">REPORTE</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8 px-6 py-8 sm:px-8">
+                <form id="registro-form" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Tipo de documento</label>
+                        <select name="tipo_documento" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200">
+                            <option value="">Seleccione...</option>
+                            <option value="dni">DNI</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Número de documento</label>
+                        <input name="numero_documento" type="text" placeholder="Ingrese número" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Nombres</label>
+                        <input name="nombres" type="text" placeholder="Ingrese nombres" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Apellidos</label>
+                        <input name="apellidos" type="text" placeholder="Ingrese apellidos" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Edad</label>
+                        <input name="edad" type="number" min="0" placeholder="Edad" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Fecha de nacimiento</label>
+                        <input name="fecha_nacimiento" type="date" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Sexo</label>
+                        <select name="sexo" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200">
+                            <option value="">Seleccione...</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Nacionalidad</label>
+                        <input name="nacionalidad" type="text" placeholder="Ingrese nacionalidad" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Ciudad</label>
+                        <input name="ciudad" type="text" placeholder="Ingrese ciudad" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Fecha de ingreso</label>
+                        <input name="fecha_ingreso" type="date" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Fecha de salida</label>
+                        <input name="fecha_salida" type="date" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-medium text-slate-700">Motivo del viaje</label>
+                        <input name="motivo_viaje" type="text" placeholder="Ingrese el motivo del viaje" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200" />
+                    </div>
+                    <div class="sm:col-span-2 xl:col-span-3 flex flex-col gap-3 sm:flex-row sm:justify-end">
+                        <button type="button" id="btn-limpiar" class="rounded-2xl border border-slate-300 bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-200">Limpiar</button>
+                        <button type="button" id="btn-registrar" class="rounded-2xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700">Registrar</button>
+                    </div>
+                </form>
+
+                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                    <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold text-slate-900">Recientes registrados</h2>
+                            <p class="mt-1 text-sm text-slate-600">Los registros se mostrarán aquí cuando agregues un huésped.</p>
+                        </div>
+                        <span id="registro-control" class="rounded-full bg-white px-4 py-2 text-sm text-slate-700 shadow-sm">No hay registros aún.</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table id="tabla-registros" class="min-w-full divide-y divide-slate-200 text-sm">
+                            <thead class="bg-white">
+                                <tr>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Documento</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Nombres</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Apellidos</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Edad</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Sexo</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Nacionalidad</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Ciudad</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Ingreso</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Salida</th>
+                                    <th class="whitespace-nowrap px-4 py-3 text-left font-semibold text-slate-700">Motivo del viaje</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white" id="registro-body">
+                                <tr>
+                                    <td colspan="10" class="px-4 py-10 text-center text-sm text-slate-500">No hay registros aún.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/registro.js"></script>
+</body>
+</html>

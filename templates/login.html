@@ -1,0 +1,83 @@
+﻿```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Registro de Huéspedes</title>
+    <link rel="icon" href="../Imagenes/a4.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body 
+  class="min-h-screen flex items-center justify-center px-4 py-10 bg-cover bg-center"
+  style="background-image: url('../Imagenes/hy.jpg');"
+>
+
+    <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- Card login -->
+    <div class="relative w-full max-w-md rounded-3xl bg-white p-8 shadow-2xl shadow-black/30">
+
+        <div class="flex flex-col items-center gap-4 text-center">
+            <div class="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-50 shadow-sm border border-slate-200">
+                <img src="../static/images/sol.png" alt="Logo Sol" class="h-12 w-12" />
+            </div>
+
+            <div>
+                <h1 class="text-3xl font-semibold text-slate-900">Bienvenido</h1>
+                <p class="mt-2 text-sm text-slate-500">
+                    Inicia sesión para acceder al sistema de registro de huéspedes.
+                </p>
+            </div>
+        </div>
+
+        <form id="login-form" class="mt-8 space-y-6" action="#" method="POST">
+
+            <div class="rounded-3xl bg-slate-50 p-5 shadow-inner shadow-slate-100">
+
+                <div class="mb-5">
+                    <label for="username" class="mb-2 block text-sm font-medium text-slate-700">
+                        Usuario
+                    </label>
+                    <input 
+                        id="username" 
+                        name="username" 
+                        type="text" 
+                        required 
+                        placeholder="Usuario"
+                        class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
+                    />
+                </div>
+
+                <div>
+                    <label for="password" class="mb-2 block text-sm font-medium text-slate-700">
+                        Contraseña
+                    </label>
+                    <input 
+                        id="password" 
+                        name="password" 
+                        type="password" 
+                        required 
+                        class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
+                    />
+                </div>
+
+                <p id="login-error" class="mt-3 hidden rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700"></p>
+            </div>
+
+            <button 
+                type="submit" 
+                class="w-full rounded-3xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+            >
+                Iniciar sesión
+            </button>
+
+        </form>
+
+    </div>
+    <script src="../static/js/login.js"></script>
+</body>
+</html>
+```
